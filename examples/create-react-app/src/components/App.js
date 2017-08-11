@@ -1,24 +1,17 @@
-// @flow
-
 import React, { Component } from 'react';
-import Button from 'material-ui/Button';
+import { injectSheet } from '../ui/style';
+import { Button } from '../ui/controls/';
 import Dialog, {
   DialogTitle,
   DialogContent,
   DialogContentText,
   DialogActions,
-} from 'material-ui/Dialog';
-import Typography from 'material-ui/Typography';
-import withRoot from '../components/withRoot';
+} from '../ui/controls/Dialog';
+import Typography from '../ui/Typography';
+import styleSheet from './App.jss'
 
-const styles = {
-  container: {
-    textAlign: 'center',
-    paddingTop: 200,
-  },
-};
 
-class Index extends Component {
+class App extends Component {
   state = {
     open: false,
   };
@@ -36,8 +29,10 @@ class Index extends Component {
   };
 
   render() {
+    const { classes } = this.props
+
     return (
-      <div style={styles.container}>
+      <div className={ classes.container }>
         <Dialog open={this.state.open} onRequestClose={this.handleRequestClose}>
           <DialogTitle>Super Secret Password</DialogTitle>
           <DialogContent>
@@ -63,4 +58,4 @@ class Index extends Component {
   }
 }
 
-export default withRoot(Index);
+export default injectSheet( styleSheet, App )

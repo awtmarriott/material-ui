@@ -2,6 +2,6 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import Index from './pages/index';
+import Root from './components/Root';
 
-render(<Index />, document.querySelector('#root'));
+render(<Root />, document.querySelector('#root'));
